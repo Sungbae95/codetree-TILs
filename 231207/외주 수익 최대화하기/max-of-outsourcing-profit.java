@@ -18,7 +18,7 @@ public class Main {
     for (int i = 0; i < N; i++){
       if (i + t[i] <= N){
         dp[i + t[i]] = Math.max(dp[i + t[i]], dp[i] +  p[i]);
-      }dp[i+1] = Math.max(dp[i+1], p[i]);
+      }dp[i+1] = Math.max(dp[i+1], dp[i]);
     }
     System.out.println(dp[N]);
   }
