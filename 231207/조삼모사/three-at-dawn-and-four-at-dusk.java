@@ -31,7 +31,7 @@ public class Main {
     for (int i = idx; i < N; i++){
       if (visited[i]) continue;
       visited[i] = true;
-      dfs(depth + 1, idx + 1);
+      dfs(depth + 1, i + 1);
       visited[i] = false;
     }
   }
