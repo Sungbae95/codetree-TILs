@@ -18,7 +18,7 @@ public class Main {
       arr[i] = Integer.parseInt(st.nextToken());
     }
     st = new StringTokenizer(br.readLine());
-    for (int i = 0; i < N-1; i++){
+    for (int i = 0; i < 3; i++){
       cal[i] = Integer.parseInt(st.nextToken());
     }
     dfs(arr[0], 1);
