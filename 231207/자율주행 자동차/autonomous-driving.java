@@ -8,7 +8,6 @@ public class Main {
   static int [] dy = {-1, 0, 1, 0};
   static int [] dx = {0, 1, 0, -1};
   static int [][] arr;
-  static boolean [][] visited;
   static int count = 1;
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,7 +15,6 @@ public class Main {
     N = Integer.parseInt(st.nextToken());
     M = Integer.parseInt(st.nextToken());
     arr = new int[N][M];
-    visited = new boolean[N][M];
     st = new StringTokenizer(br.readLine());
     int startY = Integer.parseInt(st.nextToken());
     int startX = Integer.parseInt(st.nextToken());
@@ -37,17 +35,15 @@ public class Main {
       if (di == -1) di = 3;
       int nY = y + dy[di];
       int nX = x + dx[di];
-      if (nY <= 0 || nX <= 0 || nY >= N ||  nX >= M || visited[nY][nX] || arr[nY][nX] != 0) continue;
+      if (nY < 0 || nX < 0 || nY >= N ||  nX >= M  || arr[nY][nX] != 0) continue;
       count++;
       dfs(nY, nX, di);
       return;
     }
     int dir = (di + 2) % 4;
-    for (int i = 0; i < 4; i++){
       int nY = y + dy[dir];
       int nX = x + dx[dir];
-      if (nY <= 0 || nX <= 0 || nY >= N ||  nX >= M || arr[nY][nX] == 1) continue;
+      if (nY <= 0 || nX <= 0 || nY >= N ||  nX >= M || arr[nY][nX] == 1) return;
       dfs(nY, nX, di);
-    }
   }
 }
